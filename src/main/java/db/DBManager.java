@@ -61,7 +61,7 @@ public class DBManager {
     public static List<Discipline> getAllDiscipline() {
         List<Discipline> result = new ArrayList<>();
         try {
-            ResultSet resultSet = statement.executeQuery("select d.id, discipline from discipline as d" +
+            ResultSet resultSet = statement.executeQuery("select id, discipline from discipline" +
                     " where status = '1'");
             while (resultSet.next()) {
                 Discipline discipline = new Discipline();
@@ -121,6 +121,20 @@ public class DBManager {
             statement.execute(String.format("INSERT INTO `student` " +
                     "(`surname`, `name`, `id_group`, `date`) " +
                     "VALUES ('%s', '%s', '%d', '%s');", surname, name, groupId, date));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void createDiscipline(String discipline) {
+        try {
+            statement.execute(String.format("INSERT INTO `discipline` (`discipline`) VALUES ('%s');", discipline));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void createTerm(String term, String duration) {
+        try {
+            statement.execute(String.format("INSERT INTO `term` (`term`, `duration`) VALUES ('$s', '$s');", term, duration));
         } catch (Exception e) {
             e.printStackTrace();
         }
