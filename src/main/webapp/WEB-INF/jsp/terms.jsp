@@ -45,7 +45,11 @@
         </table>
     </div>
     <div class="button5">
-        <div class="button51"><a class="button511" href="termCreating.html"><button class="button5111">Создать семестр...</button></a></div>
+        <div class="button51"><a>
+            <form action="/term_create" method="get">
+                <button class="button5111">Создать семестр...</button>
+            </form>
+        </a></div>
         <div class="button52"><a class="button522" href="termModifying.html"><button class="button5222">Модифицировать текущий семестр...</button></a></div>
         <div class="button53"><a class="button533" href=""><button class="button5333">Удалить текущий семестр...</button></a></div>
     </div>
